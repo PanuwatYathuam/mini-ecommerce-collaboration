@@ -25,13 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inefficient Search
+    // ✅ ปรับปรุงการค้นหาให้ trim และแสดงสินค้าทั้งหมดถ้า input ว่าง
     searchInput.addEventListener('keyup', () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        const filteredProducts = allProducts.filter(product => {
-            // Simple search, not very efficient
-            return product.name.toLowerCase().includes(searchTerm);
-        });
-        displayProducts(filteredProducts);
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        if (searchTerm === '') {
+            // ถ้า input ว่าง → แสดงสินค้าทั้งหมด
+            displayProducts(allProducts);
+        } else {
+            const filteredProducts = allProducts.filter(product => {
+                return product.name.toLowerCase().includes(searchTerm);
+            });
+            displayProducts(filteredProducts);
+        }
     });
 });
