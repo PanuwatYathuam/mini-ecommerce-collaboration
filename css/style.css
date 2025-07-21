@@ -1,7 +1,30 @@
-body { font-family: sans-serif; margin: 0; background-color: #f4f4f4; }
-header { background: #333; color: #fff; padding: 1rem; text-align: center; }
-input[type="text"] { width: 60%; padding: 8px; }
-main {justify-content: center; padding: 1rem; }
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 8px;
+}
+
+/* ✅ Responsive Grid */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* ✅ Card Style + Hover Animation */
 .product-card {
     background: #fff;
     border: 1px solid #ddd;
@@ -11,7 +34,31 @@ main {justify-content: center; padding: 1rem; }
     width: 200px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* ✅ smooth animation */
 }
-.product-card img { max-width: 100%; height: auto; }
-.product-card h3 { font-size: 1.1em; }
-.product-card p { color: #888; }
+
+.product-card:hover {
+    transform: scale(1.05); /* ✅ zoom effect */
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+}
+
+.product-card p {
+    color: #888;
+}
+
+/* ✅ Loader Style */
+.loader {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 2em;
+    display: none;
+    color: #333;
+}
