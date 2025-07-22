@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             allProducts = data;
-            displayProducts(allProducts);
+            setTimeout(() => {
+                displayProducts(allProducts);
+                loader.style.display = 'none';
+            }, 2000); // หน่วงเวลา 2000 มิลลิวินาที = 2 วินาที
         });
 
     function displayProducts(products) {
