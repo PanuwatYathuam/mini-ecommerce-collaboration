@@ -11,12 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             allProducts = data;
-            displayProducts(allProducts);
-            loader.style.display = 'none';
-        })
-        .catch(error => {
-            loader.textContent = 'เกิดข้อผิดพลาดในการโหลดสินค้า';
-            console.error('Error loading products:', error);
+            setTimeout(() => {
+                displayProducts(allProducts);
+                loader.style.display = 'none';
+            }, 2000); // หน่วงเวลา 2000 มิลลิวินาที = 2 วินาที
         });
 
     function displayProducts(products) {
